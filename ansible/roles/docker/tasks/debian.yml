@@ -26,9 +26,7 @@
     state: present
   tags: [docker]
 
-- name: pip install docker-py
-  shell:  pip install docker-py --upgrade
-  tags: [docker]
+ 
 
 - name: Debian files are present
   template:
