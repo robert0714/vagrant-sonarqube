@@ -6,5 +6,5 @@
     - docker
     - docker-compose
     - sonarqube
-#    - jenkins
-#    - jenkins-node
+    - jenkins
+    - jenkins-node
