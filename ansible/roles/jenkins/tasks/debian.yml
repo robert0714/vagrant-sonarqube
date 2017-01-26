@@ -19,6 +19,18 @@
   register: container_result
   tags: [jenkins]
 
+# This disables the new Out-Of-Box setup wizard. If not disabled, that wizard 
+# disables the Jenkins CLI until the user has completed it. The auto-generated
+# password for the default 'admin' account will be written out to
+# /var/lib/jenkins/secrets/initialAdminPassword.
+- name: Configure JVM Arguments
+  lineinfile:
+    dest: /data/jenkins
+    regexp: '^JAVA_ARGS='
+    line: 'JAVA_ARGS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"'  
+  notify:
+    - "Restart Service 'jenkins'"
+
 - pause: seconds=45
   when: container_result|changed
   tags: [jenkins]
