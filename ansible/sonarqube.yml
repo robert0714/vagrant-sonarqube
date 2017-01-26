@@ -3,6 +3,7 @@
   serial: 1
   roles:
     - common
+    - java
     - docker
     - docker-compose
     - sonarqube
