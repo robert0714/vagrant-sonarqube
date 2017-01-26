@@ -4,6 +4,7 @@
   roles:
     - common
     - java
+    - maven 
     - docker
     - docker-compose
     - sonarqube
