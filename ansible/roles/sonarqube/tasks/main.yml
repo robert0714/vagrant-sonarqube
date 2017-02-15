@@ -67,7 +67,7 @@
       - name: "{{ docker_network_name }}"
     ports: 
      - "9092:9092"
-     - "8080:9000" 
+     - "80:9000" 
     volumes:
       - /vagrant/.vagrant/machines:/machines
       - /data/sonarqube/conf:/opt/sonarqube/conf
