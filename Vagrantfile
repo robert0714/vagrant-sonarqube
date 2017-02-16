@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/sonarqube.yml -c local"
 #    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
-      v.memory = 2048
+      v.memory = 3072
       v.cpus = 2
     end
   end
