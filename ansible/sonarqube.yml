@@ -7,5 +7,6 @@
     - maven 
     - docker
     - docker-compose
-#    - sonarqube
     - jenkins2
+    - sonarqube
+    
