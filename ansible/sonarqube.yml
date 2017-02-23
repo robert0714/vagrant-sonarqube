@@ -9,4 +9,5 @@
     - docker-compose
     - jenkins2
     - sonarqube
+    - tomcat
     

@@ -36,14 +36,21 @@
   when: copy_result|changed == True
   tags: [tomcat]
 
+- name: Create tomcat group
+  group: name=tomcat state=present
+  tags: [tomcat]
+ 
+
 - name: Create tomcat user
   user: 
-    name: tomcat 
-    home: "{{ tomcat_user_home }}" 
+    name: "{{tomcat_user}}" 
+    home: "{{tomcat_install_dir }}/apache-tomcat-{{tomcat_version}}" 
+    password: "{{ tomcat_password |password_hash('sha512') }}"
     uid: "{{ tomcat_uid }}"
     shell: /bin/sh 
     group: tomcat 
     state: present
+    append: yes
   ignore_errors: True
   tags: [tomcat]
 
@@ -62,11 +69,11 @@
      path: "/tmp/apache-tomcat-{{ tomcat_version }}.tar.gz"
      state: absent
   ignore_errors: yes
-   tags: [tomcat]
+  tags: [tomcat]
 
 - name: Set tomcat file permissions
   file: 
-     path: "/opt/apache-tomcat-{{ tomcat_version }}" 
+     path: "{{tomcat_install_dir }}/apache-tomcat-{{tomcat_version}}" 
      owner: "{{ tomcat_user }}"
      group: tomcat 
      recurse: yes
