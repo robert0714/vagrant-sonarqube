@@ -53,7 +53,7 @@
 
 - name: Plugins are present
   copy:
-    src='{{ item }}'
+    src='plugins/{{ item }}'
     dest='/data/jenkins/plugins/{{ item }}'
     mode=0777
   with_items: "{{ plugins_files }}"
