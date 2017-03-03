@@ -104,11 +104,6 @@
   when: configs_result|changed or plugins_result|changed
   tags: [jenkins]
 
-  
-- wait_for:
-    path: /data/jenkins/plugins/{{ item }}
-  with_items: "{{  plugins }}"
-  tags: [jenkins]
 
 
 
@@ -121,7 +116,7 @@
     path: "{{ home }}/jobs/{{ item.name }}"
     state: directory
     mode: 0777
-  with_items: jobs
+  with_items: "{{  jobs }}"
   tags: [jenkins]
 
 - name: Jobs are present
@@ -129,7 +124,7 @@
     src: "{{ item.src }}"
     dest: "{{ home }}/jobs/{{ item.name }}/config.xml"
     mode: 0777
-  with_items: jobs
+  with_items: "{{  jobs }}"
   register: jobs_result
   tags: [jenkins]
 
