@@ -28,9 +28,13 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
-    ports: 8080:8080
+    ports: 
+        - "8080:8080"
+        - "5000:5000"
+        - "50000:50000"
     volumes:
       - /data/jenkins:/var/jenkins_home
       - /vagrant/.vagrant/machines:/machines
@@ -61,9 +65,6 @@
   register: plugins_result
   tags: [jenkins]
 
-
-
-
 # Workaround to fix the bug in restarting containers from Ansible 2
 
 - name: Container is stopped
@@ -71,8 +72,16 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JENKINS_OPTS: "--prefix=/jenkins"
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
+    ports: 
+        - "8080:8080"
+        - "5000:5000"
+        - "50000:50000"
+    volumes:
+      - /data/jenkins:/var/jenkins_home
+      - /vagrant/.vagrant/machines:/machines
     state: stopped
   when: configs_result|changed or plugins_result|changed
   tags: [jenkins]
@@ -82,9 +91,13 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
-    ports: 8080:8080
+    ports: 
+        - "8080:8080"
+        - "5000:5000"
+        - "50000:50000"
     volumes:
       - /data/jenkins:/var/jenkins_home
       - /vagrant/.vagrant/machines:/machines
