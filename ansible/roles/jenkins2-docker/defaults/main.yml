@@ -66,3 +66,23 @@ plugins:
   - wildfly-deployer
 
 
+plugins_files:
+  - github.hpi
+  - git.hpi
+  - git-client.hpi
+  - github-api.hpi
+  - ssh-slaves.hpi
+  - log-parser.hpi
+  - copyartifact.hpi
+  - workflow-aggregator.hpi
+  - workflow-multibranch.hpi
+  - docker-workflow.hpi
+  - template-project.hpi
+  - maven-plugin.hpi
+  - dashboard-view.hpi
+  - sonar.hpi
+  - active-directory.hpi
+  - global-build-stats.hpi
+  - jobConfigHistory.hpi
+  - build-pipeline-plugin.hpi
+  - wildfly-deployer.hpi

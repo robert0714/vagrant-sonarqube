@@ -45,6 +45,20 @@
   when: container_result|changed
   tags: [jenkins]
 
+- name: wildfly-cli-8.2.1.Final-client is present for wildfly-deploy plugins
+  get_url:
+    url: https://search.maven.org/remotecontent?filepath=org/wildfly/wildfly-cli/8.2.1.Final/wildfly-cli-8.2.1.Final-client.jar
+    dest: /data/jenkins/war/WEB-INF/lib/wildfly-cli-8.2.1.Final-client.jar
+  tags: [jenkins]
+
+- name: Plugins are present
+  copy:
+    src='{{ item }}'
+    dest='/data/jenkins/plugins/{{ item }}'
+    mode=0777
+  with_items: "{{ plugins_files }}"
+  tags: [jenkins]
+
 - name: Configurations are present
   copy:
     src: "{{ item.src }}"
