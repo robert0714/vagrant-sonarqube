@@ -4,6 +4,11 @@
     update_cache: yes
     state: present
   tags: [docker]
+  
+- name:  update  pip
+  shell: pip install -U pip
+  ignore_errors: yes
+  tags:   [docker]
 
 - name: Debian Docker is present
   apt:
