@@ -1,0 +1,12 @@
+#- hosts: all
+#- hosts: vip-sso-ipki
+- hosts: sit
+  remote_user: vagrant
+  serial: 1
+  roles:    
+    - common
+    - oracle-java-develop
+    - jenkins-node
+    - maintain-user
+    - jboss-common
+    - jboss-eap

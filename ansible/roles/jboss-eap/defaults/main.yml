@@ -1,0 +1,84 @@
+---
+
+# Name of the separate running Red Hat JBoss EAP instance
+jboss_eap_instance_name: default
+
+# Red Hat JBoss EAP admin user name
+jboss_eap_instance_admin_user: admin
+
+# Red Hat JBoss EAP admin password ("admin") hashed according to HEX( MD5( username ':' realm ':' password))
+jboss_eap_instance_admin_password: c22052286cd5d72239a90fe193737253
+
+# Red Hat JBoss EAP admin user groups
+jboss_eap_instance_admin_groups:
+
+# System user configuration
+jboss:
+  user: jboss
+  group: jboss
+  group_id: 500
+  user_home: "/opt/jboss"
+
+# Value for the xms and xmx (both are set equal)
+jvm_xm: 512
+
+# Port offset for the JBoss EAP instance
+jboss_eap_instance_port_offset: 0
+
+# Port used only during updates using the CLI (port should be available)
+jboss_eap_instance_cli_default_port: 8888
+
+# Name of the used standalone XML file
+jboss_eap_instance_standalone_file: standalone.xml
+
+
+######### CLI files used for the JBoss EAP configuration
+
+# List of CLI files.
+cli_list: { }
+
+# Local directory containing the CLI files in cli_list. Mandatory if 'cli_list' is not empty.
+cli_dir: ""
+
+
+######### Applications retrieved per file copy
+
+# List of the local appplications to be deployed.
+app_list: { }
+
+# Local directory containing the files listed in app_list. Mandatory if 'app_list' is not empty.
+app_dir: ""
+
+
+######### Applications retrieved over Nexus
+
+# List of the nexus/maven applications to be deployed.
+app_mvn_list: { }
+
+# Nexus connectivity information
+nexus_user: ""
+nexus_password: ""
+nexus_host: ""
+nexus_repository_id: ""
+
+gi_dir: "/tmp"
+jboss_as_standalone_sh: jboss-as-standalone.sh
+jboss_eap_golden_image_name: jboss-eap-7.0 
+#jboss_eap_instance_name: "petclinic"
+#jboss_eap_instance_standalone_file: "standalone-full-ha.xml"
+#jboss_eap_instance_port_offset: "1000"
+#app_mvn_list: [ { g: "com.redhat.jboss", a: "petclinic.war", v: "1.0", e: "war" } ]
+#cli_list: { "add_datasource.cli", "add_mod_cluster_7.cli"}
+jboss_eap7_src: 'http://192.168.57.22:8080/jboss-eap-7.0.0.zip'
+ 
+standalone_templates: [
+  {
+    src: "standalone.xml",
+    dest: "standalone/configuration/standalone.xml"
+  } 
+]
+module_configs: [
+  { jdbc_package_name: "com.microsoft" , jdbc_jar_name: "mssql-jdbc-6.1.0.jre8.jar", src: "module.xml", dir: "modules/com/microsoft/main", file: "module.xml", mode: "0644"  },
+  { jdbc_package_name: "com.mysql" , jdbc_jar_name: "mysql-connector-java-5.1.41.jar", src: "module.xml", dir: "modules/com/mysql/main", file: "module.xml", mode: "0644"  }, 
+  { jdbc_package_name: "net.sourceforge.jtds" , jdbc_jar_name: "jtds-1.3.1.jar", src: "module.xml", dir: "modules/net/sourceforge/jtds/main", file: "module.xml", mode: "0644"  }
+]

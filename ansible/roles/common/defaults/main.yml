@@ -1,5 +1,6 @@
 hosts: [
-  { host_ip: "10.100.98.200", host_name: "sonarqube"} 
+  { host_ip: "10.100.98.200", host_name: "sonarqube"} ,
+  { host_ip: "10.100.98.201", host_name: "sit"} 
 ]
 
 obsolete_services:
@@ -7,5 +8,5 @@ obsolete_services:
   - chef-client
 
 centos_files: [
-     { src: "centos.sshd_config", dest: "/etc/ssh/sshd_config" },
+     { src: "centos.sshd_config", dest: "/etc/ssh/sshd_config" }
   ]

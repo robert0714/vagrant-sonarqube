@@ -22,6 +22,17 @@ Vagrant.configure(2) do |config|
       v.cpus = 2
     end
   end
+  config.vm.define "sit" do |d| 
+    d.vm.box = "ubuntu/trusty64"
+    d.vm.hostname = "sit"
+    d.vm.network "private_network", ip: "10.100.98.201"
+#    d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.39", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
+#    default_router = "192.168.57.1"
+#    d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"  "
+    d.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+    end
+  end
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end

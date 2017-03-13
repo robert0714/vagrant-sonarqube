@@ -1,0 +1,20 @@
+---
+
+- name: "{{ jboss_eap_instance_name }} (01) Check existence of the JBoss EAP installation"
+  stat:
+    path: "{{ jboss_home + '/version.txt'}}"
+  register: jboss_eap_exists
+
+ 
+
+# This command fails with ansible 2.1.0.0
+- name: "{{ jboss_eap_instance_name }} (01) Extract JBoss EAP zipped distribution"
+  # new version or no installation so far
+  when: jboss_eap_exists.stat.exists == false  
+  unarchive:
+    src: "{{ download_dir + '/' + jboss_eap_golden_image_name }}.zip"
+    dest: "{{ jboss.user_home }}"
+    copy: false
+    owner: "{{ jboss.user }}"
+    group: "{{ jboss.group }}"
+  register: distribution
