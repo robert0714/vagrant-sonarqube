@@ -50,6 +50,10 @@ jobs: [
     name: "ude-restart-jboss",
     service_name: "ude-restart-jboss",
     src: "ude-restart-jboss-config.xml"
+  }, {
+    name: "ude-sonarqube",
+    service_name: "ude-sonarqube",
+    src: "ude-sonarqube_config.xml"
   }
 ]
 
