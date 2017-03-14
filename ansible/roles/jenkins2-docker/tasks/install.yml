@@ -28,7 +28,7 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false    -Duser.timezone=Asia/Taipei"
-      JENKINS_OPTS: "--prefix=/jenkins" 
+#      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
     ports: 
@@ -86,12 +86,12 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false     -Duser.timezone=Asia/Taipei"
-     JENKINS_OPTS: "--prefix=/jenkins"
+#      JENKINS_OPTS: "--prefix=/jenkins"
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
     ports: 
         - "8080:8080"
-       - "5000:5000"
+        - "5000:5000"
         - "50000:50000"
     volumes:
       - /data/jenkins:/var/jenkins_home
@@ -105,7 +105,7 @@
     privileged: yes
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false   -Duser.timezone=Asia/Taipei"
-     JENKINS_OPTS: "--prefix=/jenkins" 
+#      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins:{{ jenkins_version }}"
     ports: 

@@ -6,6 +6,7 @@ configs: [
   { src: "credentials.xml", dir: "/data/jenkins", file: "credentials.xml", mode: "0777" },
   { src: "hudson.tasks.Maven.xml", dir: "/data/jenkins", file: "hudson.tasks.Maven.xml", mode: "0777" },
   { src: "sonarqube-config.xml", dir: "/data/jenkins/nodes/sonarqube", file: "config.xml", mode: "0777" },
+  { src: "sit-config.xml", dir: "/data/jenkins/nodes/sit", file: "config.xml", mode: "0777" },
   { src: "LogParserPublisher.xml", dir: "/data/jenkins", file: "hudson.plugins.logparser.LogParserPublisher.xml", mode: "0777" },
   { src: "parsing_rules", dir: "/data/jenkins", file: "parsing_rules", mode: "0777" },
   { src: "scriptApproval.xml", dir: "/data/jenkins", file: "scriptApproval.xml", mode: "0644" }
