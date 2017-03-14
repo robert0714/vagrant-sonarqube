@@ -46,6 +46,10 @@ jobs: [
     name: "ude-tutorials",
     service_name: "ude-tutorials",
     src: "ude-tutorials02-config.xml"
+  }, {
+    name: "ude-restart-jboss",
+    service_name: "ude-restart-jboss",
+    src: "ude-restart-jboss-config.xml"
   }
 ]
 
