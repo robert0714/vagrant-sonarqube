@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "sit" do |d| 
-    d.vm.box = "bento/fedora-22"
+    d.vm.box = "bento/centos-7.3"
     d.vm.hostname = "sit"
     d.vm.network "private_network", ip: "10.100.98.201"
 #    d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.39", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
