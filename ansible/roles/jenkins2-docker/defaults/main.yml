@@ -81,7 +81,6 @@ plugins:
 
 plugins_files:
   - ace-editor.hpi
-  - ace-editor.hpi
   - active-directory.hpi
   - async-http-client.hpi
   - authentication-tokens.hpi
@@ -93,6 +92,7 @@ plugins_files:
   - credentials-binding.hpi
   - credentials.hpi
   - dashboard-view.hpi
+  - deploy.hpi
   - display-url-api.hpi
   - docker-commons.hpi
   - docker-workflow.hpi
@@ -126,6 +126,7 @@ plugins_files:
   - pipeline-model-api.hpi
   - pipeline-model-declarative-agent.hpi
   - pipeline-model-definition.hpi
+  - pipeline-model-extensions.hpi
   - pipeline-rest-api.hpi
   - pipeline-stage-step.hpi
   - pipeline-stage-tags-metadata.hpi

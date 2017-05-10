@@ -26,7 +26,7 @@ Vagrant.configure(2) do |config|
     d.vm.box = "bento/centos-7.3"
     d.vm.hostname = "sit"
     d.vm.network "private_network", ip: "10.100.98.201"
-    d.vm.provision :shell , inline: "systemctl restart network"
+#    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
