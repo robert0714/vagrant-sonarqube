@@ -5,7 +5,8 @@
   serial: 1
   roles:    
     - common
-    - oracle-java-develop
+    - jdk
+#    - oracle-java-develop
     - jenkins-node
     - maintain-user
     - jboss-common

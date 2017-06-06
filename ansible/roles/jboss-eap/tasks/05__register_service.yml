@@ -34,6 +34,7 @@
   become_user: "{{ jboss.user }}"
   ignore_errors: yes
   shell: 'pkill -TERM -f "^java(.*){{ jboss_eap_instance_dir }}"'
+  ignore_errors: yes
 
 - name: "{{ jboss_eap_instance_name }} (05) Failure"
   when: conf_11.changed and cli_result.failed is defined and cli_result.failed
