@@ -1,6 +1,6 @@
 - name: Debian add Docker repository and update apt cache
   apt_repository:
-    repo:  "[arch=amd64] https://download.docker.com/linux/ubuntu {{ debian_version }} stable "
+    repo:  " deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ debian_version }} stable "
     update_cache: yes
     state: present
   tags: [docker]
