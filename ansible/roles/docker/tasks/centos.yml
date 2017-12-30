@@ -77,7 +77,7 @@
 - name: vagrant user is added to the docker group
   user:
     name: vagrant
-    group: docker
+    groups: docker
     append: yes
   register: user_result
   tags: [docker]
